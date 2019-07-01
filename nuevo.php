@@ -15,25 +15,19 @@
 			
 			<form class="form-horizontal" method="POST" action="guardar.php" autocomplete="off">
 				<div class="form-group">
-					<label for="nombre" class="col-sm-2 control-label">Nombre</label>
+					<label for="nombre" class="col-sm-2 control-label">Prenda</label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required>
 					</div>
 				</div>
 				
 				<div class="form-group">
-					<label for="apellido" class="col-sm-2 control-label">Apellido</label>
+					<label for="precio" class="col-sm-2 control-label">Precio $</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellido" required>
+						<input type="text" class="form-control" id="precio" name="precio" placeholder="precio" required>
 					</div>
 				</div>
 				
-				<div class="form-group">
-					<label for="telefono" class="col-sm-2 control-label">Telefono</label>
-					<div class="col-sm-10">
-						<input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Telefono">
-					</div>
-				</div>
 				
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">

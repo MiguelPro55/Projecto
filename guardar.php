@@ -3,10 +3,9 @@
 	require 'conexion.php';
 
 	$nombre = $_POST['nombre'];
-	$apellido = $_POST['apellido'];
-	$telefono = $_POST['telefono'];
+	$precio = $_POST['precio'];
 
-	$sql = "INSERT INTO usuarios (Nombre, Apellido, Telefono) VALUES ('$nombre', '$apellido', '$telefono')";
+	$sql = "INSERT INTO productos (Prenda,Precio) VALUES ('$nombre', '$precio')";
 	$resultado = $mysqli->query($sql);
 
 ?>
