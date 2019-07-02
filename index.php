@@ -15,6 +15,7 @@
 		<link href="css/bootstrap-theme.css" rel="stylesheet">
 		<script src="js/jquery-3.4.1.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>	
+		<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 	</head>
 
 	<body>
@@ -45,15 +46,43 @@
 								<td><?php echo $row['id']; ?></td>
 								<td><?php echo $row['Prenda']; ?></td>
 								<td><?php echo $row['Precio']; ?></td>
-								<td><a href="modificar.php?id= <?php echo $row['id']; ?>"><span class="glyphicon glyphicon-pencil"></span></td>
-								<td></td>
+								<td><a href="modificar.php?id= <?php echo $row['id']; ?>"><i class="fas fa-edit"></i></td>
+								<td><a href="#" data-href="modificar.php?id= <?php echo $row['id']; ?>" data-toggle="modal" data-target="#confirm-delete"><i class="fas fa-trash-alt"></i></td>
 							</tr>
 						<?php } ?>
 					</tbody>
-					
 				</table>
-
 			</div>
+		</div>
+
+		<!-- Modal -->
+		<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="myModalLabel">Eliminar Registro</h4>
+					</div>
+					
+					<div class="modal-body">
+						¿Desea eliminar este registro?
+					</div>
+					
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+						<a class="btn btn-danger btn-ok">Delete</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			$('#confirm-delete').on('show.bs.modal', function(e) {
+				$(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+				
+				$('.debug-url').html('Delete URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
+			});
+		</script>	
 			
 	</body>
 </html>
