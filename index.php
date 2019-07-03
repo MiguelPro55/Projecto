@@ -47,7 +47,7 @@
 								<td><?php echo $row['Prenda']; ?></td>
 								<td><?php echo $row['Precio']; ?></td>
 								<td><a href="modificar.php?id= <?php echo $row['id']; ?>"><i class="fas fa-edit"></i></td>
-								<td><a href="#" data-href="modificar.php?id= <?php echo $row['id']; ?>" data-toggle="modal" data-target="#confirm-delete"><i class="fas fa-trash-alt"></i></td>
+								<td><a href="#" data-href="eliminar.php?id= <?php echo $row['id']; ?>" data-toggle="modal" data-target="#confirm-delete"><i class="fas fa-trash-alt"></i></td>
 							</tr>
 						<?php } ?>
 					</tbody>
