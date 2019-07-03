@@ -1,11 +1,7 @@
 <?php
 
 	require 'conexion.php';
-
-	$where = "";
-
-	$sql = "SELECT * FROM productos";
-	$resultado = $mysqli->query($sql);
+	 
 ?>
 
 <html lang="es">
@@ -16,6 +12,33 @@
 		<script src="js/jquery-3.4.1.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>	
 		<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+		<link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/>
+		<script type="text/javascript" src="DataTables/datatables.min.js"></script>
+
+		<script>
+			$(document).ready(function(){
+				$('#mitabla').DataTable({
+					"order": [[1, "asc"]],
+					"language":{
+						"lengthMenu": "Mostrar _MENU_ registros por pagina",
+						"info": "Mostrando pagina _PAGE_ de _PAGES_",
+					"infoEmpty": "No hay registros disponibles",
+					"infoFiltered": "(filtrada de _MAX_ registros)",
+					"loadingRecords": "Cargando...",
+					"processing":     "Procesando...",
+					"search": "Buscar:",
+					"zeroRecords":    "No se encontraron registros coincidentes",
+					"paginate": {
+							"next":       "Siguiente",
+							"previous":   "Anterior"
+						},
+					},
+					"bProcessing": true,
+					"bServerSide": true,
+					"sAjaxSource": "server_process.php"
+				});
+			});
+		</script>
 	</head>
 
 	<body>
@@ -26,11 +49,10 @@
 			<div class="row">
 				<a href="nuevo.php" class="btn btn-primary">Nuevo Registro</a>			
 			</div>
-
 			<br>
 
 			<div class="row table-responsive">
-				<table class="table table-striped">
+				<table id="mitabla" class="display" >
 					<thead>
 						<tr>
 							<th>ID</th>
@@ -41,15 +63,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<?php while($row = $resultado->fetch_array(MYSQLI_ASSOC)) { ?>
-							<tr>
-								<td><?php echo $row['id']; ?></td>
-								<td><?php echo $row['Prenda']; ?></td>
-								<td><?php echo $row['Precio']; ?></td>
-								<td><a href="modificar.php?id= <?php echo $row['id']; ?>"><i class="fas fa-edit"></i></td>
-								<td><a href="#" data-href="eliminar.php?id= <?php echo $row['id']; ?>" data-toggle="modal" data-target="#confirm-delete"><i class="fas fa-trash-alt"></i></td>
-							</tr>
-						<?php } ?>
+					
 					</tbody>
 				</table>
 			</div>
