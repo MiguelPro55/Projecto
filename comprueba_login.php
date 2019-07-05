@@ -13,6 +13,8 @@
         $resultado->execute();
         $numero_registro=$resultado->rowCount();
         if($numero_registro!=0){
+            session_start();
+            $_SESSION["usuario"]=$_POST["user"];
             header("location:index.php");
 
         }else{

@@ -3,6 +3,14 @@
 	require 'conexion.php';
 	 
 ?>
+<?php
+	session_start();
+	if(!isset($_SESSION["usuario"])){
+		header("location:login.php");
+	}
+
+
+?>
 
 <html lang="es">
 	<head>
@@ -45,6 +53,11 @@
 		<div class="container">
 			<div class="row">
 				<h2 style="text-align:center">Productos</h2>
+				<h4 style="padding-left:800">
+				<?php
+					echo "Usuario:" . $_SESSION["usuario"] . "<br><br>";
+				?>
+				</h4>
 			</div>
 			<div class="row">
 				<a href="nuevo.php" class="btn btn-primary">Nuevo Registro</a>			
