@@ -50,7 +50,7 @@
 				
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
-						<a href="index.php" class="btn btn-default">Regresar</a>
+						<a href="productos.php" class="btn btn-default">Regresar</a>
 						<button type="submit" class="btn btn-primary">Guardar</button>
 					</div>
 				</div>

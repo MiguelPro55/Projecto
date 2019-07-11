@@ -1,120 +1,36 @@
 <?php
-	require 'conexion.php';
-?>
-<?php
 	session_start();
 	if(!isset($_SESSION["usuario"])){
 		header("location:login.php");
 	}
-	
 ?>
-<html lang="es">
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link href="css/bootstrap-theme.css" rel="stylesheet">
-		<link href="css/jquery.dataTables.min.css" rel="stylesheet">
-		<script src="js/jquery-3.1.1.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>	
-		<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-		<script src="js/jquery.dataTables.min.js"></script>
-		<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-		
-		<script>
-			$(document).ready(function(){
-				$('#mitabla').DataTable({
-					"order": [[1, "asc"]],
-					"language":{
-					"lengthMenu": "Mostrar _MENU_ registros por pagina",
-					"info": "Mostrando pagina _PAGE_ de _PAGES_",
-						"infoEmpty": "No hay registros disponibles",
-						"infoFiltered": "(filtrada de _MAX_ registros)",
-						"loadingRecords": "Cargando...",
-						"processing":     "Procesando...",
-						"search": "Buscar:",
-						"zeroRecords":    "No se encontraron registros coincidentes",
-						"paginate": {
-							"next":       "Siguiente",
-							"previous":   "Anterior"
-						},					
-					},
-					"bProcessing": true,
-					"bServerSide": true,
-					"sAjaxSource": "server_process.php"
-				});	
-			});
-			
-		</script>
-		
-	</head>
-	
-	<body>
-		
-		<div class="container">
-			<div class="row">
-				<h2 style="text-align:center">Productos</h2>
-				<h4 style="padding-left:800">
-				<?php
-					echo "Usuario:" . $_SESSION["usuario"] . "<br><br>";
-				?>
-				</h4>
-			</div>
-			
-			<div class="row">
-				<a href="nuevo.php" class="btn btn-primary">Nuevo Registro</a>
-			</div>
-			
-			<br>
-			
-			<div class="row table-responsive">
-				<table class="display" id="mitabla">
-					<thead>
-						<tr>
-							<th>ID</th>
-							<th>Prenda</th>
-							<th>Precio Lavado</th>
-							<th>Precio Planchado</th>
-							<th></th>
-							<th></th>
-						</tr>
-					</thead>
-					
-					<tbody>
-						
-					</tbody>
-				</table>
-			</div>
-		</div>
-		
-		<!-- Modal -->
-		<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						<h4 class="modal-title" id="myModalLabel">Eliminar Registro</h4>
-					</div>
-					
-					<div class="modal-body">
-						¿Desea eliminar este registro?
-					</div>
-					
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-						<a class="btn btn-danger btn-ok">Eliminar</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<script>
-			$('#confirm-delete').on('show.bs.modal', function(e) {
-				$(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
-				
-				$('.debug-url').html('Delete URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
-			});
-		</script>	
-		
-	</body>
-</html>	
+<html>
+<head>
+    <link href="css/index_estilo.css" rel="stylesheet">
+
+</head>
+<body>
+    <header class="header">
+        <div class="container logo-nav-container">
+            <a href="index.php" class="logo">Usuario:<?php print $_SESSION["usuario"] ?></a>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="#">Nuevo pedido</a></li>
+                    <li><a href="#">Pedidos pendientes</a></li>
+                    <li><a href="#">Pedidos entregados</a></li>
+                    <li><a href="productos.php">Productos</a></li>
+                    <li><a href="#">Empleados</a></li>
+                    <li><a href="#">Reporte de pedidos</a></li>
+                    <li><a href="#">Ganchos vendidos</a></li>
+                </ul>
+            </nav>
+            <a href="cierre_login" class="logo">Cerrar sesion</a>
+        </div>
+    </header>
+    <footer class="footer">
+        <div class="container">
+            <p>Sistema desarrollado por K</p>
+        </div>
+    </footer>
+</body>
+</html>

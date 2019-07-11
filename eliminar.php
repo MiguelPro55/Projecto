@@ -29,7 +29,7 @@
 				<h3>ERROR AL ELIMINAR</h3>
 				<?php } ?>
 				
-				<a href="index.php" class="btn btn-primary">Regresar</a>
+				<a href="productos.php" class="btn btn-primary">Regresar</a>
 				
 				</div>
 			</div>

@@ -7,20 +7,17 @@
 		<script src="js/jquery-3.4.1.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>	
         <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-        <link href="css/login_estilo.css" rel="stylesheet">
+        <link href="css/login_estilo2.css" rel="stylesheet">
 	</head>
 <body>
     <br><br><br><br><br><br>
     <div class="container">
-        <form method="post" action="comprueba_login.php" autocomplete="off">
-            <table>
-            <tr><td colspan="2"><h2>Sistema de control</h2><br></td></tr>
-            <tr><td class="izq">Usuario:</td><td class="der"><input type="text" id="user" name="user"></td></tr>
-            <tr><td class="izq">Contraseña:</td><td class="der"><input type="password" id="pass" name="pass"></td></tr>
-            <tr><td colspan="2"><br><button type="submit" class="btn btn-secondary">Entrar</button>
-            </td></tr>
-            </table>
-        </form>
+        <form class="form" method="post" action="comprueba_login.php" autocomplete="off">
+            <center><img src='logo-planchaduria.jpg'>
+            <p type="Usuario:"><input type="text" id="user" name="user"></input></p>
+            <p type="Contraseña:"><input type="password" id="pass" name="pass"></input></p></center>
+            <button type="submit">Entrar</button>
+</form>
     </div>
 
 </body>
