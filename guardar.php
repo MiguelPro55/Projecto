@@ -1,34 +1,41 @@
 <?php
-
+	
 	require 'conexion.php';
-
+	
 	$nombre = $_POST['nombre'];
-	$precio = $_POST['precio'];
+	$preciolavado = $_POST['preciolavado'];
+	$precioplanchado = $_POST['precioplanchado'];
 
-	$sql = "INSERT INTO productos (Prenda,Precio) VALUES ('$nombre', '$precio')";
+	
+	$sql = "INSERT INTO productos (Prenda,PrecioLavado,PrecioPlanchado) VALUES ('$nombre','$preciolavado','$precioplanchado')";
 	$resultado = $mysqli->query($sql);
-
+	
 ?>
 
 <html lang="es">
 	<head>
+		
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/bootstrap-theme.css" rel="stylesheet">
-		<script src="js/jquery-3.4.1.min.js"></script>
+		<script src="js/jquery-3.1.1.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>	
 	</head>
+	
 	<body>
 		<div class="container">
-			<div class="row" style="text-align:center">
-				<?php if($resultado) { ?>
-				<h3>Registro guardado</h3>
-				<?php } else { ?>
-				<h3>Error al guardar</h3>
-				<?php } ?>
-
-				<a href="/proyecto/" class="btn btn-primary">Regresar</a>
+			<div class="row">
+				<div class="row" style="text-align:center">
+					<?php if($resultado) { ?>
+						<h3>REGISTRO GUARDADO</h3>
+						<?php } else { ?>
+						<h3>ERROR AL GUARDAR</h3>
+					<?php } ?>
+					
+					<a href="index.php" class="btn btn-primary">Regresar</a>
+					
+				</div>
+			</div>
 		</div>
-
 	</body>
 </html>

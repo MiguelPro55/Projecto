@@ -1,4 +1,9 @@
 <?php
+	/*
+		* Script:    Tablas de multiples datos del lado del servidor para PHP y MySQL
+		* Copyright: 2016 - Marko Robles
+		* License:   GPL v2 or BSD (3-point)
+	*/
 	
 	require 'conexion.php';
 	
@@ -6,7 +11,7 @@
 	$sTabla = "productos";
 	
 	/* Array que contiene los nombres de las columnas de la tabla*/
-	$aColumnas = array( 'id', 'Prenda', 'Precio' );
+	$aColumnas = array( 'id', 'Prenda', 'PrecioLavado', 'PrecioPlanchado' );
 	
 	/* columna indexada */
 	$sIndexColumn = "id";
