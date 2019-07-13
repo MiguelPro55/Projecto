@@ -1,6 +1,7 @@
 <?php
 	require 'conexion.php';
 ?>
+
 <?php
 	require 'barra_tareas.php';
 ?>
@@ -37,7 +38,7 @@
 					},
 					"bProcessing": true,
 					"bServerSide": true,
-					"sAjaxSource": "server_process.php"
+					"sAjaxSource": "server_process_empleados.php"
 				});	
 			});
 			
@@ -49,13 +50,13 @@
 		
 		<div class="container">
 			<div class="row">
-				<h2 style="text-align:center">Productos</h2>
+				<h2 style="text-align:center">Empleados</h2>
 				<h4 style="padding-left:800">
 				</h4>
 			</div>
 			
 			<div class="row">
-				<a href="nuevo.php" class="btn btn-primary">Nuevo Registro</a>
+				<a href="nuevo_empleado.php" class="btn btn-primary">Nuevo Empleado</a>
 			</div>
 			
 			<br>
@@ -65,9 +66,15 @@
 					<thead>
 						<tr>
 							<th>ID</th>
-							<th>Prenda</th>
-							<th>Precio Lavado</th>
-							<th>Precio Planchado</th>
+							<th>Usuario</th>
+							<th>Clave</th>
+							<th>Pedido Nuevo</th>
+							<th>Pedidos Pendientes</th>
+                            <th>Pedidos Entregados</th>
+                            <th>Productos</th>
+                            <th>Empleados</th>
+                            <th>Reportes</th>
+                            <th>Venta de ganchos</th>
 							<th></th>
 							<th></th>
 						</tr>
@@ -87,7 +94,7 @@
 					
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						<h4 class="modal-title" id="myModalLabel">Eliminar Registro</h4>
+						<h4 class="modal-title" id="myModalLabel">Eliminar Empleado</h4>
 					</div>
 					
 					<div class="modal-body">

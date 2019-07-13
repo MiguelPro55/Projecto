@@ -7,4 +7,4 @@ p:before{content:attr(type);display:block;margin:28px 0 0;font-size:18px;color:#
 button{float:right;padding:8px 30px;margin:20px 220px 0;font-family:'Ebrima';border:2px solid #78788c;background:0;color:#5a5a6e;cursor:pointer;transition:all .3s}
 button:hover{background:#78788c;color:#fff}
 span{margin:0 5px 0 15px}
-img{width:75%; height:105px;}
+img{width:50%; height:105px;}
