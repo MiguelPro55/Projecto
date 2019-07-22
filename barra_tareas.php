@@ -15,7 +15,7 @@
             <a href="index.php" class="logo">Usuario:<?php print $_SESSION["usuario"] ?></a>
             <nav class="navigation">
                 <ul>
-                    <li><a href="#">Nuevo pedido</a></li>
+                    <li><a href="nuevo_pedido.php">Nuevo pedido</a></li>
                     <li><a href="#">Pedidos pendientes</a></li>
                     <li><a href="#">Pedidos entregados</a></li>
                     <li><a href="productos.php">Productos</a></li>

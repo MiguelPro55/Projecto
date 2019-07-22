@@ -1,3 +1,6 @@
+<?php
+    require 'barra_tareas.php';
+?>
 <html lang="es">
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
