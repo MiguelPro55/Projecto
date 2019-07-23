@@ -70,6 +70,7 @@
 						</div></td>
 						<td class='col-xs-2'><div class="pull-right">
 						<input type="checkbox" class="custom-control-input" id="precio_venta_p_<?php echo $id_producto; ?>"  value="<?php echo $precio_venta_p;?>" >
+						
 						</div></td>
 						<td class='col-xs-2'><div class="pull-right">
 						<input type="checkbox" class="custom-control-input" id="precio_venta_l_<?php echo $id_producto; ?>"  value="<?php echo $precio_venta_l;?>" >
