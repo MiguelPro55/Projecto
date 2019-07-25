@@ -22,7 +22,6 @@
             <a href="index.php" class="logo">Usuario:<?php print $_SESSION["usuario"] ?></a>
             <nav class="navigation">
                 <ul>
-<<<<<<< HEAD
                     <?php if($row['NuevoPedido']==1){ ?>
                     <li><a href="nuevo_pedido.php">Nuevo pedido</a></li><?php } ?>
                     <?php if($row['PedidosPendientes']==1){ ?>
@@ -37,7 +36,6 @@
                     <li><a href="#">Reporte de pedidos</a></li><?php } ?>
                     <?php if($row['GanchosVendidos']==1){ ?>
                     <li><a href="#">Ganchos vendidos</a></li><?php } ?>
-=======
                     <li><a href="nuevo_pedido.php">Nuevo pedido</a></li>
                     <li><a href="#">Pedidos pendientes</a></li>
                     <li><a href="#">Pedidos entregados</a></li>
@@ -45,7 +43,6 @@
                     <li><a href="empleados.php">Empleados</a></li>
                     <li><a href="#">Reporte de pedidos</a></li>
                     <li><a href="#">Ganchos vendidos</a></li>
->>>>>>> d657688acc3e6396320d5bba2b57d336fb395712
                 </ul>
             </nav>
             <a href="cierre_login" class="logo">Cerrar sesion</a>
