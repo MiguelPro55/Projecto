@@ -6,8 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 		<link href="css/bootstrap.min.css" rel="stylesheet">
     </head>
-    <body style='background:#C0C0C0; text-decoration: none;'>
-        <center><img style='max-width:80%; height:auto; margin-top:30px;' src="logo-planchaduria.jpg"></center>
+    <body style='background:#fb0ce4; text-decoration: none;'>
+        <center><img style='max-width:80%; height:auto; margin-top:1px;' src="logo-planchaduria2.jpeg"></center>
 
     </body>
 </html>

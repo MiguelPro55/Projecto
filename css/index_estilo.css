@@ -7,13 +7,13 @@ body{
     margin:0;
 }
 .header{
-    background: rgb(132, 185, 255);
+    background:rgb(167, 167, 167);
     color:white;
     padding:1rem 0;
 }
 .header a{
     text-decoration: none;
-    color:white;
+    color:rgb(255, 255, 255);
 }
 .logo-nav-container{
     display:flex;
@@ -38,7 +38,8 @@ body{
     font-size: 12px;
 }
 .navigation ul li a:hover{
-    background: rgba(255, 255, 255, 0.425);
+    background: white;
+    color:black;
     
 }
 .footer{

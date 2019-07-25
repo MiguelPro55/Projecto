@@ -72,6 +72,7 @@
                     </div>
                 </div>
 				
+				
 				<div class="form-group">
 					<div class="col-sm-offset-5 col-sm-10">
 						<a href="productos.php" class="btn btn-default">Regresar</a>
