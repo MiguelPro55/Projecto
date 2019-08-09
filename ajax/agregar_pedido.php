@@ -5,6 +5,8 @@ if (isset($_POST['id'])){$id=$_POST['id'];}
 if (isset($_POST['cantidad'])){$cantidad=$_POST['cantidad'];}
 if (isset($_POST['precio_venta_p_'])){$precio_planchado=$_POST['precio_venta_p_'];}
 if (isset($_POST['precio_venta_l_'])){$precio_lavado=$_POST['precio_venta_l_'];}
+if (isset($_POST['express'])){$express=$_POST['express'];}
+if (isset($_POST['almidon'])){$almidon=$_POST['almidon'];}
 
 	/* Connect To Database*/
 	require_once ("../conexion.php");//Contiene funcion que conecta a la base de datos
@@ -12,13 +14,13 @@ if (isset($_POST['precio_venta_l_'])){$precio_lavado=$_POST['precio_venta_l_'];}
 if (!empty($id) and !empty($cantidad))
 {
 	if ($precio_planchado != 0 and $precio_lavado == 0) {
-		$insert_tmp=mysqli_query($mysqli, "INSERT INTO tmp (id_producto,cantidad,preciop) VALUES ('$id','$cantidad','$precio_planchado')");
+		$insert_tmp=mysqli_query($mysqli, "INSERT INTO tmp (id_producto,cantidad,preciop,express,almidon) VALUES ('$id','$cantidad','$precio_planchado','$express','$almidon')");
 	}
 	else if($precio_lavado != 0 and $precio_planchado == 0){
-		$insert_tmp=mysqli_query($mysqli, "INSERT INTO tmp (id_producto,cantidad,preciol) VALUES ('$id','$cantidad','$precio_lavado')");
+		$insert_tmp=mysqli_query($mysqli, "INSERT INTO tmp (id_producto,cantidad,preciol,express,almidon) VALUES ('$id','$cantidad','$precio_lavado','$express','$almidon')");
 	}
 	else {
-		$insert_tmp=mysqli_query($mysqli, "INSERT INTO tmp (id_producto,cantidad,preciop,preciol) VALUES ('$id','$cantidad','$precio_planchado','$precio_lavado')");
+		$insert_tmp=mysqli_query($mysqli, "INSERT INTO tmp (id_producto,cantidad,preciop,preciol,express,almidon) VALUES ('$id','$cantidad','$precio_planchado','$precio_lavado','$express', '$almidon')");
 	}
 
 }
@@ -34,10 +36,10 @@ $delete=mysqli_query($mysqli, "DELETE FROM tmp WHERE id_tmp='".$id."'");
 	<th>CODIGO</th>
 	<th>CANT.</th>
 	<th>DESCRIPCION</th>
-	<th><span class="pull-right" style="width:170px;">PRECIO PLANCHADO</span></th>
-	<th><span class="pull-right" style="width:300px;">PRECIO LAVADO</span></th>
-	<th><span class="pull-right">EXPRESS</span></th>
-	<th><span class="pull-right">ALMIDÓN</span>
+	<th>PRECIO PLANCHADO</th>
+	<th>PRECIO LAVADO</th>
+	<th>EXPRESS</th>
+	<th>ALMIDÓN</th>
 	<th></th>
 </tr>
 <?php
@@ -51,6 +53,10 @@ $delete=mysqli_query($mysqli, "DELETE FROM tmp WHERE id_tmp='".$id."'");
 	$nombre_producto=$row['Prenda'];
 	$precio_planchado=$row['preciop'];
 	$precio_lavado=$row['preciol'];
+	$express=$row['express'];
+	$almidon=$row['almidon'];
+	$express_f=number_format($express,2);
+	$almidon_f=number_format($almidon,2);
 	$precio_venta_f_planchado=number_format($precio_planchado,2);//Formateo variables
 	$precio_venta_f_lavado=number_format($precio_lavado,2);//Formateo variables
 	$precio_venta_r_planchado=str_replace(",","",$precio_venta_f_planchado);//Reemplazo las 	comas
@@ -58,7 +64,7 @@ $delete=mysqli_query($mysqli, "DELETE FROM tmp WHERE id_tmp='".$id."'");
 	$precio_total=($precio_venta_r_planchado+$precio_venta_r_lavado)*$cantidad;
 	$precio_total_f_planchado=number_format($precio_total,2);//Precio total formateado
 	$precio_total_r_planchado=str_replace(",","",$precio_total_f_planchado);//Reemplazo las comas
-	$sumador_total+=$precio_total_r_planchado;//Sumador
+	$sumador_total+=$precio_total_r_planchado+$express_f+$almidon;//Sumador
 	
 		?>
 
@@ -66,10 +72,10 @@ $delete=mysqli_query($mysqli, "DELETE FROM tmp WHERE id_tmp='".$id."'");
 			<td><?php echo $codigo_producto;?></td>
 			<td><?php echo $cantidad;?></td>
 			<td><?php echo $nombre_producto;?></td>
-			<td><span><input type="checkbox" name="checarplanchado" id="checarplanchado" onclick="validar('<?php echo $id_tmp ?>')"></span></td>
-			<td><span><input type="checkbox" name="checarlavado" id="checarlavado"></span></td>
-			<td><div class="pull-right" style="width:200px;"><input type="text" name="precioexpress" id="precioexpress" placeholder="Precio" value="0" ></td>
-			<td><div class="pull-right" style="width:200px;"><input type="text" name="precioalmidon" id="precioalmidon" placeholder="Precio" value="0"></td>
+			<td><?php echo $precio_venta_r_planchado;?></td>
+			<td><?php echo $precio_venta_r_lavado;?></td>
+			<td><?php echo $express_f;?></td>
+			<td><?php echo $almidon_f;?></td>
 			<td ><span class="pull-right"><a href="#" onclick="eliminar('<?php echo $id_tmp ?>')"><i class="glyphicon glyphicon-trash"></i></a></span></td>
 		</tr>	
 

@@ -1,6 +1,6 @@
 <?php 
 	require 'conexion.php';
-		require 'barra_tareas.php';
+		
 
 ?>
 
@@ -145,9 +145,9 @@
 		{
 			var precio_venta_p=parseFloat(preciop);	
 			var precio_venta_l=parseFloat(preciol);
-			var cantidad=$('#cantidad_'+id).val();
-			var express=$('#express'+id).val();
-			var almidon=$('#almidon'+id).val();
+			var cantidad=$('#cantidad_'+id).val();	
+			var express=$('#express_'+id).val();
+			var almidon=$('#almidon_'+id).val();
 			//Inicia validacion
 			if (isNaN(cantidad))
 			{
@@ -155,13 +155,10 @@
 			document.getElementById('cantidad_'+id).focus();
 			return false;
 			}
-			if(isNaN(precio_venta_p)){
-				alert('Esto no es un numero');
-			document.getElementById('cantidad_'+id).focus();
-			return false;
-			}
+			
+			
 			//Fin validacion
-		var parametros={"id":id,"precio_venta_p_":precio_venta_p,"precio_venta_l_":precio_venta_l,"cantidad":cantidad};	
+		var parametros={"id":id,"precio_venta_p_":precio_venta_p,"precio_venta_l_":precio_venta_l,"cantidad":cantidad, "express":express, "almidon":almidon};	
 		$.ajax({
         type: "POST",
         url: "./ajax/agregar_pedido.php",

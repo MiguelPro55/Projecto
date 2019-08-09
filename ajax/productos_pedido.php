@@ -79,12 +79,12 @@
 						</div></td>
 						<td class="col-xs-1">
 							<div class="pull-right">
-								<input type="text" class="form-control" style="text-align:right " id="express_<?php echo $id_producto; ?>" value="0">
+								<input type="text" class="form-control" style="text-align:right" id="express_<?php echo $id_producto; ?>" value="0">
 							</div>
 						</td>
 						<td class="col-xs-1">
 							<div class="pull-right">
-								<input type="text" class="form-control" style="text-align:right " id="almidon_<?php echo $id_producto; ?>" value="0">
+								<input type="text" class="form-control" style="text-align:right" id="almidon_<?php echo $id_producto; ?>" value="0">
 							</div>
 						</td>
 						<script type="text/javascript">
@@ -107,7 +107,7 @@
 								}
 							}							
 						</script>
-						<td ><span class="pull-right"><a href="#" onclick="agregar('<?php echo $id_producto ?>', '<?php echo "validarplanchado();"; ?>', '<?php echo "validarlavado();"; ?>')"><i class="glyphicon glyphicon-plus"></i></a></span></td>
+						<td ><span class="pull-right"><a href="#" onclick="agregar('<?php echo $id_producto ?>',validarplanchado(),validarlavado())"><i class="glyphicon glyphicon-plus"></i></a></span></td>
 					</tr>
 					<?php
 				}
