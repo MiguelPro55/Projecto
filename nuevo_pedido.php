@@ -1,6 +1,6 @@
 <?php 
 	require 'conexion.php';
-	require 'barra_tareas.php';
+		
 
 ?>
 
@@ -34,34 +34,51 @@
 				<div class="form-group">
 					<label for="AbonoPedido" class="col-sm-2 control-label">Abono</label>
 					<div class="col-sm-5">
-						<input type="text" class="form-control" id="AbonoPedido" name="AbonoPedido" placeholder="$">
+						<input type="text" class="form-control" id="AbonoPedido" name="AbonoPedido" placeholder="$" value="0">
 					</div>
 				</div>
 						
 				<div class="form-group">
-					<label for="cantidadganchos" class="col-sm-2 control-label">Ganchos</label>
+					<label for="cantidadganchos" class="col-sm-2 control-label">Ganchos del cliente</label>
 					<div class="col-sm-5">
-						<input type="text" class="form-control" id="cantidadganchos" name="cantidadganchos" placeholder="Cantidad">
+						<input type="text" class="form-control" id="cantidadganchos" name="cantidadganchos" placeholder="Cantidad" value="0">
 					</div>
 				</div>
-				
-				
-				
-				
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-5">
 						<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Agregar Prendas</button>
-						<a href="index.php" class="btn btn-default">Regresar</a>
-						<button id="guarda" type="submit" class="btn btn-primary">Guardar</button>
 					</div>
 				</div>
 
+
+				<div id="resultados" class='col-md-12'></div><!-- Carga los datos ajax -->
+
+				
+
+				<div id="TOTAL" class='col-md-12'></div><!-- Carga el total -->
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-5">
+						<span><a href="#" onclick="actualizarprecio()">ACTUALIZAR TOTAL</a></span>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<div class="pull-right">
+						<a href="index.php" class="btn btn-default">Regresar</a>
+						<button id="guarda" type="submit" class="btn btn-primary">Guardar</button>
+						</div>
+					</div>
+				</div>
+				
 				
 				
 					
 			</form>
-		<div id="resultados" class='col-md-12'></div><!-- Carga los datos ajax -->
-	
+		
+
+
+
 			<!-- Modal -->
 			<div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 			  <div class="modal-dialog modal-lg" role="document">
@@ -124,10 +141,13 @@
 		}
 	</script>
 	<script>
-	function agregar (id)
+	function agregar (id,preciop,preciol)
 		{
-			var precio_venta=$('#precio_venta_p_'+id).val();
-			var cantidad=$('#cantidad_'+id).val();
+			var precio_venta_p=parseFloat(preciop);	
+			var precio_venta_l=parseFloat(preciol);
+			var cantidad=$('#cantidad_'+id).val();	
+			var express=$('#express_'+id).val();
+			var almidon=$('#almidon_'+id).val();
 			//Inicia validacion
 			if (isNaN(cantidad))
 			{
@@ -135,14 +155,10 @@
 			document.getElementById('cantidad_'+id).focus();
 			return false;
 			}
-			if (isNaN(precio_venta))
-			{
-			alert('Esto no es un numero');
-			document.getElementById('precio_venta_p_'+id).focus();
-			return false;
-			}
+			
+			
 			//Fin validacion
-		var parametros={"id":id,"precio_venta_p_":precio_venta,"cantidad":cantidad};	
+		var parametros={"id":id,"precio_venta_p_":precio_venta_p,"precio_venta_l_":precio_venta_l,"cantidad":cantidad, "express":express, "almidon":almidon};	
 		$.ajax({
         type: "POST",
         url: "./ajax/agregar_pedido.php",
@@ -173,6 +189,26 @@
 
 		}
 		
+	</script>
+	<script >
+		function actualizarprecio(){
+		var abono = $('#AbonoPedido').val();
+		var express = $('#precioexpress').val();
+
+			
+		var parametros2={"abono":abono, "express": express}
+		$.ajax({
+			type: "POST",
+			url: "./ajax/mostrar_total.php",
+			data:parametros2,
+			beforeSend: function(objeto){
+				$("#TOTAL").html();
+			},
+			success:function(datos){
+				$("#TOTAL").html(datos);
+			}
+		});
+		}
 	</script>
 	
 	
