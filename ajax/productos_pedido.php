@@ -48,6 +48,8 @@
 					<th><span class="pull-right">Cant.</span></th>
 					<th><span class="pull-right">Planchado</span></th>
 					<th><span class="pull-right">Lavado</span></th>
+					<th><span class="pull-right">EXPRESS</span></th>
+					<th><span class="pull-right">ALMIDÓN</span>
 					<th style="width: 36px;"></th>
 				</tr>
 				<?php
@@ -68,14 +70,44 @@
 						<div class="pull-right">
 						<input type="text" class="form-control" style="text-align:right" id="cantidad_<?php echo $id_producto; ?>"  value="1" >
 						</div></td>
-						<td class='col-xs-2'><div class="pull-right">
-						<input type="checkbox" class="custom-control-input" id="precio_venta_p_<?php echo $id_producto; ?>"  value="<?php echo $precio_venta_p;?>" >
-						
+						<td class='col-xs-2'><div align="center">
+						<span><input type="checkbox" name="checarplanchado" id="checarplanchado"></span>
+
 						</div></td>
-						<td class='col-xs-2'><div class="pull-right">
-						<input type="checkbox" class="custom-control-input" id="precio_venta_l_<?php echo $id_producto; ?>"  value="<?php echo $precio_venta_l;?>" >
+						<td class='col-xs-2'><div align="center">
+						<span><input type="checkbox" name="checarlavado" id="checarlavado"></span>
 						</div></td>
-						<td ><span class="pull-right"><a href="#" onclick="agregar('<?php echo $id_producto ?>')"><i class="glyphicon glyphicon-plus"></i></a></span></td>
+						<td class="col-xs-1">
+							<div class="pull-right">
+								<input type="text" class="form-control" style="text-align:right " id="express_<?php echo $id_producto; ?>" value="0">
+							</div>
+						</td>
+						<td class="col-xs-1">
+							<div class="pull-right">
+								<input type="text" class="form-control" style="text-align:right " id="almidon_<?php echo $id_producto; ?>" value="0">
+							</div>
+						</td>
+						<script type="text/javascript">
+							function validarplanchado(){
+								var checado= document.getElementById('checarplanchado');
+								if(checado){
+									return <?php echo $precio_venta_p ?>;
+								}
+								else{
+									return 0;
+								}
+							}
+							function validarlavado(){
+								var checado= document.getElementById('checarlavado');
+								if(checado){
+									return <?php echo $precio_venta_l ?>;
+								}
+								else{
+									return 0;
+								}
+							}							
+						</script>
+						<td ><span class="pull-right"><a href="#" onclick="agregar('<?php echo $id_producto ?>', '<?php echo "validarplanchado();"; ?>', '<?php echo "validarlavado();"; ?>')"><i class="glyphicon glyphicon-plus"></i></a></span></td>
 					</tr>
 					<?php
 				}
@@ -87,6 +119,9 @@
 				</tr>
 			  </table>
 			</div>
+						
+
+
 			<?php
 		}
 	}
