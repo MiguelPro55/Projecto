@@ -1,6 +1,6 @@
 <?php 
 	require 'conexion.php';
-		
+	require 'barra_tareas.php';
 
 ?>
 
@@ -20,7 +20,8 @@
 	<body>
 		<div class="container">
 			<div class="row">
-				<h3 style="text-align:center">NUEVO REGISTRO</h3>
+				<h2 style="text-align:center">Pedidos</h2>
+				<br><br>
 			</div>
 			
 			<form class="form-horizontal" method="POST" action="guardar.php" autocomplete="off">
