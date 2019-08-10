@@ -14,7 +14,7 @@ $format=number_format($totaldef,2);
 ?>
 <table class="table">
 <tr>
-	<td colspan=4><span class="pull-right">TOTAL $</span></td>
+	<td colspan=4><span class="pull-right">TOTAL  $</span></td>
 	<td><span class="pull-right"><?php echo $format?></span></td>
 	<td></td>
 </tr>
