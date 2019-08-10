@@ -55,27 +55,24 @@
 				<?php
 				while ($row=mysqli_fetch_array($query)){
 					$id_producto=$row['id'];
-					$codigo_producto=$row['id'];
 					$nombre_producto=$row['Prenda'];
-					$codigo_producto=$row["id"];
 					$precio_planchado=$row["PrecioPlanchado"];
 					$precio_lavado=$row["PrecioLavado"];
-					$precio_venta_p=number_format($precio_planchado,2);
-					$precio_venta_l=number_format($precio_lavado,2);
+					
 					?>
 					<tr>
-						<td><?php echo $codigo_producto; ?></td>
+						<td><?php echo $id_producto; ?></td>
 						<td><?php echo $nombre_producto; ?></td>
 						<td class='col-xs-1'>
 						<div class="pull-right">
 						<input type="text" class="form-control" style="text-align:right" id="cantidad_<?php echo $id_producto; ?>"  value="1" >
 						</div></td>
 						<td class='col-xs-2'><div align="center">
-						<span><input type="checkbox" name="checarplanchado" id="checarplanchado" value='1'></span>
+						<span><input type="checkbox" name="checarplanchado" id="checarplanchado_<?php echo $id_producto; ?>" value='1'></span>
 
 						</div></td>
 						<td class='col-xs-2'><div align="center">
-						<span><input type="checkbox" name="checarlavado" id="checarlavado" value='1'></span>
+						<span><input type="checkbox" name="checarlavado" id="checarlavado_<?php echo $id_producto; ?>" value='1'></span>
 						</div></td>
 						<td class="col-xs-1">
 							<div class="pull-right">
@@ -88,8 +85,8 @@
 							</div>
 						</td>
 						<script type="text/javascript">
-							function validarplanchado(){
-								var checado= document.getElementById('checarplanchado').checked;
+							function validarplanchado(id){
+								var checado= document.getElementById('checarplanchado_'+id).checked;
 								if(checado){
 																		
 									return 1; 
@@ -98,8 +95,8 @@
 									return 0;
 								}
 							}
-							function validarlavado(){
-								var checado= document.getElementById('checarlavado').checked;
+							function validarlavado(id){
+								var checado= document.getElementById('checarlavado_'+id).checked;
 								if(checado){
 									return 1;
 								}
@@ -108,7 +105,7 @@
 								}
 							}							
 						</script>
-						<td ><span class="pull-right"><a href="#" onclick="agregar('<?php echo $id_producto ?>',validarplanchado(),validarlavado(),'100','<?php echo $precio_lavado?>')"><i class="glyphicon glyphicon-plus"></i></a></span></td>
+						<td ><span class="pull-right"><a href="#" onclick="agregar('<?php echo  $id_producto , "," , $precio_planchado, ",", $precio_lavado?>',validarplanchado(<?php echo  $id_producto ?>),validarlavado(<?php echo  $id_producto ?>))"><i class="glyphicon glyphicon-plus"></i></a></span></td>
 					</tr>
 					<?php
 				}

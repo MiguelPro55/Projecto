@@ -141,8 +141,12 @@
 		}
 	</script>
 	<script>
-	function agregar (id,check1,check2,preciop,preciol)
+	function agregar (id,check1,check2)
 		{
+			var array = id.split(",");
+			id=array[0];
+			var preciop = array[1];
+			var preciol = array[2];
 			if(check1==1){ var precio_venta_p=parseFloat(preciop); }
 			else{ var precio_venta_p=parseFloat(0); }
 			if (check2==1){ var precio_venta_l=parseFloat(preciol); }
