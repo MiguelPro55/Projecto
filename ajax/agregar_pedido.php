@@ -87,11 +87,7 @@ $delete=mysqli_query($mysqli, "DELETE FROM tmp WHERE id_tmp='".$id."'");
 <?php 
 $_SESSION['subtotal']=$sumador_total;	
 ?>
-<tr>
-	<td colspan=4><span class="pull-right">TOTAL $</span></td>
-	<td><span class="pull-right"><?php echo number_format($sumador_total,2);?></span></td>
-	<td></td>
-</tr>
+
 
 </table>
 			

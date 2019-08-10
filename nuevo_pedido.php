@@ -1,7 +1,9 @@
 <?php 
 	require 'conexion.php';
-		
+	require 'barra_tareas.php';
 
+	$sqlborrar = "DELETE FROM tmp";
+	$resultadoborrar = $mysqli->query($sqlborrar);
 ?>
 
 <html lang="es">
@@ -38,6 +40,12 @@
 					</div>
 				</div>
 						
+				<div class="form-group">
+					<label for="vendeganchos" class="col-sm-2 control-label">Cantidad de ganchos a vender</label>
+					<div class="col-sm-5">
+						<input type="text" class="form-control" id="vendeganchos" name="vendeganchos" placeholder="Cantidad" value="0">
+					</div>
+				</div>
 				<div class="form-group">
 					<label for="cantidadganchos" class="col-sm-2 control-label">Ganchos del cliente</label>
 					<div class="col-sm-5">
@@ -199,10 +207,9 @@
 	<script >
 		function actualizarprecio(){
 		var abono = $('#AbonoPedido').val();
-		var express = $('#precioexpress').val();
-
+		var cantidadganchos = $ ('#vendeganchos').val();
 			
-		var parametros2={"abono":abono, "express": express}
+		var parametros2={"abono":abono, "cantganchos":cantidadganchos}
 		$.ajax({
 			type: "POST",
 			url: "./ajax/mostrar_total.php",
