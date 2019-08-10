@@ -1,6 +1,6 @@
 <?php
 	require 'conexion.php';
-	
+	require 'barra_tareas.php';
 	$id = $_GET['id'];
 	
 	$sql = "SELECT * FROM productos WHERE id = '$id'";
