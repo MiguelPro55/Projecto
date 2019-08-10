@@ -3,6 +3,12 @@
 ?>
 <?php
 	require 'barra_tareas.php';
+
+	
+	$sql = "SELECT * FROM precioganchos ";
+	$resultado = $mysqli->query($sql);
+	$row = $resultado->fetch_array(MYSQLI_ASSOC);
+	
 ?>
 
 <html lang="es">
@@ -56,6 +62,7 @@
 			
 			<div class="row">
 				<a href="nuevo.php" class="btn btn-primary">Nuevo Registro</a>
+				<a class="btn btn-primary" data-toggle="modal" data-target="#Modificar_Gancho">Precio de Gancho</a>
 			</div>
 			
 			<br>
@@ -98,6 +105,32 @@
 						<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
 						<a class="btn btn-danger btn-ok">Eliminar</a>
 					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Modal -->
+		<div class="modal fade" id="Modificar_Gancho" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="myModalLabel">Modificar</h4>
+					</div>
+					<form action="modificargancho.php" method="POST">
+					<div class="modal-body">
+						<div class="form-group">
+							<label for="nombre" class="col-sm-2 control-label">Gancho $</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="preciogang" name="preciogang" placeholder="Precio" value="<?php echo $row['PrecioG']; ?>" required>
+							</div>
+							<br>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+						<button type="submit" class="btn btn-primary">Guardar</button>
+					</div>
+					</form>
 				</div>
 			</div>
 		</div>
