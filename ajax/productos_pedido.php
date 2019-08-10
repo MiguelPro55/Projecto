@@ -71,11 +71,11 @@
 						<input type="text" class="form-control" style="text-align:right" id="cantidad_<?php echo $id_producto; ?>"  value="1" >
 						</div></td>
 						<td class='col-xs-2'><div align="center">
-						<span><input type="checkbox" name="checarplanchado" id="checarplanchado"></span>
+						<span><input type="checkbox" name="checarplanchado" id="checarplanchado" value='1'></span>
 
 						</div></td>
 						<td class='col-xs-2'><div align="center">
-						<span><input type="checkbox" name="checarlavado" id="checarlavado"></span>
+						<span><input type="checkbox" name="checarlavado" id="checarlavado" value='1'></span>
 						</div></td>
 						<td class="col-xs-1">
 							<div class="pull-right">
@@ -89,25 +89,26 @@
 						</td>
 						<script type="text/javascript">
 							function validarplanchado(){
-								var checado= document.getElementById('checarplanchado');
+								var checado= document.getElementById('checarplanchado').checked;
 								if(checado){
-									return <?php echo $precio_venta_p ?>;
+																		
+									return 1; 
 								}
 								else{
 									return 0;
 								}
 							}
 							function validarlavado(){
-								var checado= document.getElementById('checarlavado');
+								var checado= document.getElementById('checarlavado').checked;
 								if(checado){
-									return <?php echo $precio_venta_l ?>;
+									return 1;
 								}
 								else{
 									return 0;
 								}
 							}							
 						</script>
-						<td ><span class="pull-right"><a href="#" onclick="agregar('<?php echo $id_producto ?>',validarplanchado(),validarlavado())"><i class="glyphicon glyphicon-plus"></i></a></span></td>
+						<td ><span class="pull-right"><a href="#" onclick="agregar('<?php echo $id_producto ?>',validarplanchado(),validarlavado(),'100','<?php echo $precio_lavado?>')"><i class="glyphicon glyphicon-plus"></i></a></span></td>
 					</tr>
 					<?php
 				}

@@ -141,10 +141,12 @@
 		}
 	</script>
 	<script>
-	function agregar (id,preciop,preciol)
+	function agregar (id,check1,check2,preciop,preciol)
 		{
-			var precio_venta_p=parseFloat(preciop);	
-			var precio_venta_l=parseFloat(preciol);
+			if(check1==1){ var precio_venta_p=parseFloat(preciop); }
+			else{ var precio_venta_p=parseFloat(0); }
+			if (check2==1){ var precio_venta_l=parseFloat(preciol); }
+			else{ var precio_venta_l=parseFloat(0); }
 			var cantidad=$('#cantidad_'+id).val();	
 			var express=$('#express_'+id).val();
 			var almidon=$('#almidon_'+id).val();
