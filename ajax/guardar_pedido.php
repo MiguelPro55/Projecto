@@ -13,6 +13,13 @@
 
 	echo $subtotal;
 	echo $total;
+	if($CantidadGanchosVenta>0){
+		$consulta = $mysqli->query("SELECT PrecioG from precioganchos");
+		$fila = $consulta->fetch_array(MYSQLI_ASSOC);
+		$preciog = $fila['PrecioG'];		
+		$sql4="INSERT INTO ganchosvendidos(Cantidad,PrecioVenta) VALUES ('$CantidadGanchosVenta',$preciog)";
+		$insertar=$mysqli->query($sql4);
+	}
 	$sql = "INSERT INTO pedidos(Cliente,Abono,ganchoscliente,ganchosvendidos,pendientepagar,total,Empleado,Entregado,idproductos) VALUES ('$nombre','$abono','$Ganchos_cliente','$CantidadGanchosVenta','$subtotal','$total','$usuario','0','$id_pedido')";
 	$resultado = $mysqli->query($sql);
 	
