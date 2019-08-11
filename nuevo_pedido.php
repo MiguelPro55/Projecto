@@ -26,11 +26,11 @@
 				<br><br>
 			</div>
 			
-			<form class="form-horizontal" method="POST" action="guardar.php" autocomplete="off">
+			<form class="form-horizontal" method="POST" action="ajax/guardar_pedido.php" autocomplete="off">
 				<div class="form-group">
-					<label for="nombre" class="col-sm-2 control-label">Cliente</label>
+					<label for="cliente" class="col-sm-2 control-label">Cliente</label>
 					<div class="col-sm-5">
-						<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required>
+						<input type="text" class="form-control" id="cliente" name="cliente" placeholder="Nombre" required>
 					</div>
 				</div>
 

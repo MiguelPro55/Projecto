@@ -8,7 +8,7 @@ if (isset($_POST['precio_venta_p_'])){$precio_planchado=$_POST['precio_venta_p_'
 if (isset($_POST['precio_venta_l_'])){$precio_lavado=$_POST['precio_venta_l_'];}
 if (isset($_POST['express'])){$express=$_POST['express'];}
 if (isset($_POST['almidon'])){$almidon=$_POST['almidon'];}
-
+$id_tmp=0;
 	/* Connect To Database*/
 	require_once ("../conexion.php");//Contiene funcion que conecta a la base de datos
 
@@ -86,7 +86,8 @@ $delete=mysqli_query($mysqli, "DELETE FROM tmp WHERE id_tmp='".$id."'");
 			}
 		?>
 <?php 
-$_SESSION['subtotal']=$sumador_total;	
+$_SESSION['subtotal']=$sumador_total;
+$_SESSION['id_pedido']=$id_tmp;
 ?>
 
 

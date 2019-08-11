@@ -9,8 +9,13 @@ if (isset($_POST['cantganchos'])){$cantganchos=$_POST['cantganchos']; if($cantga
 $resultado = $mysqli->query("SELECT PrecioG from precioganchos");
 $row = $resultado->fetch_array(MYSQLI_ASSOC);
 $preciog = $row['PrecioG'];
+$totaldelpedido=$total+($cantganchos*$preciog);
 $totaldef=$total-$abono+($cantganchos*$preciog);
+
+$format0=number_format($totaldelpedido,2);
 $format=number_format($totaldef,2);
+$_SESSION['totalpedido']=$format0;
+$_SESSION['Total']=$format;
 ?>
 <table class="table">
 <tr>
