@@ -17,7 +17,7 @@
 	</head>
 	<div class="container">
 		<div class="row">
-			<h2 style="text-align:center">Pedidos Pendientes</h2>
+			<h2 style="text-align:center">Pedidos Entregados</h2>
 			<h4 style="padding-left:800"></h4>
 		</div>
 	</div>
@@ -60,28 +60,6 @@
 			</div>
 		</div>
 
-		<!-- Modal -->
-		<div class="modal fade" id="confirmar-entrega" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						<h4 class="modal-title" id="myModalLabel">Entregar Pedido</h4>
-					</div>
-					
-					<div class="modal-body">
-						¿Desea entregar este pedido?
-					</div>
-					
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-						<a class="btn btn-primary btn-ok">Confirmar</a>
-					</div>
-				</div>
-			</div>
-		</div>
-
 	<script>
 		$(document).ready(function(){
 			load2(1);
@@ -92,7 +70,7 @@
 			var parametros1={"action":"ajax","page":page,"q":q};
 			$("#loader1").fadeIn('slow');
 			$.ajax({
-				url:'./ajax/cargar_pendientes.php',
+				url:'./ajax/cargar_entregados.php',
 				data: parametros1,
 				 beforeSend: function(objeto){
 				 $('#loader1').html('Cargando...');
@@ -122,13 +100,6 @@
 			}
 		});
 		}
-	</script>
-		<script>
-			$('#confirmar-entrega').on('show.bs.modal', function(e) {
-				$(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
-				
-				$('.debug-url').html('Delete URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
-			});
-		</script>
+	</script>	
 	</body>
 </html>	

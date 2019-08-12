@@ -27,7 +27,7 @@
                     <?php if($row['PedidosPendientes']==1){ ?>
                     <li><a href="pedidos_pendientes.php">Pedidos pendientes</a></li><?php } ?>
                     <?php if($row['PedidosEntregados']==1){ ?>
-                    <li><a href="#">Pedidos entregados</a></li><?php } ?>
+                    <li><a href="pedidos_entregados.php">Pedidos entregados</a></li><?php } ?>
                     <?php if($row['Productos']==1){ ?>
                     <li><a href="productos.php">Productos</a></li><?php } ?>
                     <?php if($row['Empleados']==1){ ?>
