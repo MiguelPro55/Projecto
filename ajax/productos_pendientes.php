@@ -2,15 +2,24 @@
 
 	/* Connect To Database*/
 	require_once ("..//conexion.php");//Contiene funcion que conecta a la base de datos
+	session_start();
 	$action = (isset($_REQUEST['action'])&& $_REQUEST['action'] !=NULL)?$_REQUEST['action']:'';
+	$id_pedido=$_REQUEST['id'];
+
+	$sql2=$mysqli->query("SELECT idproductos FROM pedidos WHERE idpedido= $id_pedido");
+	$idnecesario = $sql2->fetch_array(MYSQLI_ASSOC);
+	$idproductos = $idnecesario['idproductos'];
+
+
 	if($action == 'ajax'){
 		// escaping, additionally removing everything that could be (html/javascript-) code
+
 		 $sTable = "productospedidos";
-		 $sWhere = "";
+		 $sWhere = "WHERE idpedido = $idproductos";
 		include 'pagination.php'; //include pagination file
 		//pagination variables
 		$page = (isset($_REQUEST['page']) && !empty($_REQUEST['page']))?$_REQUEST['page']:1;
-		$per_page = 5; //how much records you want to show
+		$per_page = 10000; //how much records you want to show
 		$adjacents  = 4; //gap between pages after number of adjacents
 		$offset = ($page - 1) * $per_page;
 		//Count the total number of row in your table*/
@@ -49,14 +58,7 @@
 					<?php
 				}
 				?>
-				<tr>
-					<td colspan=5><span class="pull-right"><?php
-					 echo paginate($reload, $page, $total_pages, $adjacents);
-					?></span></td>
-				</tr>
-			  </table>
-			</div>
-						
+				
 
 
 			<?php

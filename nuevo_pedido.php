@@ -9,14 +9,14 @@
 <html lang="es">
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" type="text/css" href="alertifyjs/css/alertify.css">
-		<link rel="stylesheet" type="text/css" href="alertifyjs/css/themes/default.css">
-		
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/bootstrap-theme.css" rel="stylesheet">
+		<link href="css/jquery.dataTables.min.css" rel="stylesheet">
 		<script src="js/jquery-3.1.1.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>	
-		<script type="alertifyjs/alertify.js"></script>
+		<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+		<script src="js/jquery.dataTables.min.js"></script>
+		<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 	</head>
 	
 	<body>

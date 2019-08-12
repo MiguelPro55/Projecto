@@ -3,7 +3,6 @@
 
 	require 'barra_tareas.php';
 ?>
-
 <html lang="es">
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,68 +14,28 @@
 		<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 		<script src="js/jquery.dataTables.min.js"></script>
 		<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-		<script>
-			$(document).ready(function(){
-				$('#mitabla').DataTable({
-					"order": [[1, "asc"]],
-					"language":{
-					"lengthMenu": "Mostrar _MENU_ registros por pagina",
-					"info": "Mostrando pagina _PAGE_ de _PAGES_",
-						"infoEmpty": "No hay registros disponibles",
-						"infoFiltered": "(filtrada de _MAX_ registros)",
-						"loadingRecords": "Cargando...",
-						"processing":     "Procesando...",
-						"search": "Buscar:",
-						"zeroRecords":    "No se encontraron registros coincidentes",
-						"paginate": {
-							"next":       "Siguiente",
-							"previous":   "Anterior"
-						},					
-					},
-					"bProcessing": true,
-					"bServerSide": true,
-					"sAjaxSource": "server_process_pedidos.php"
-				});	
-			});
-			
-		</script>	
 	</head>
-	
-	<body>
-		
-		<div class="container">
-			<div class="row">
-				<h2 style="text-align:center">Pedidos Pendientes</h2>
-				<h4 style="padding-left:800">
-				</h4>
-			</div>
-			
-			<br>
-			
-			<div class="row table-responsive">
-				<table class="display" id="mitabla">
-					<thead>
-						<tr>
-							<th>ID</th>
-							<th>Cliente</th>
-							<th>Ganchos del cliente</th>
-							<th>Ganchos que se le vendieron</th>
-							<th>Total</th>
-							<th>Abono</th>
-							<th>Pendiente por Pagar</th>
-							<th>Realizo el pedido</th>
-							<th>Fecha</th>
-							<th></th>
-							<th></th>
-						</tr>
-					</thead>
-					
-					<tbody>
-						
-					</tbody>
-				</table>
-			</div>
+	<div class="container">
+		<div class="row">
+			<h2 style="text-align:center">Pedidos Pendientes</h2>
+			<h4 style="padding-left:800"></h4>
 		</div>
+	</div>
+	<form class="form-horizontal">	
+		<br>
+		<div class="form-group">
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="q" placeholder="Buscar productos" onkeyup="load2(1)">
+			</div>
+				<button type="button" class="btn btn-default" onclick="load(1)"><span class='glyphicon glyphicon-search'></span> Buscar</button>
+			</div>
+	</form>
+
+		<div id="loader1" style="position: absolute;	text-align: center;	top: 55px;	width: 100%;display:none;"></div><!-- Carga gif animado -->
+		<div class="outer_div2" ></div><!-- Datos ajax Final -->
+
+
+
 		<!-- Modal -->
 		<div class="modal fade" id="detalles" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
@@ -84,44 +43,63 @@
 					
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						<h4 class="modal-title" id="myModalLabel"></h4>
+						<h4 class="modal-title" id="myModalLabel">Prendas</h4>
 					</div>
 					
 					<div class="modal-body">
-						<div id="loader" style="position: absolute;	text-align: center;	top: 55px;	width: 100%;display:none;"></div><!-- Carga gif animado -->
-						<div class="outer_div" ></div><!-- Datos ajax Final -->
-					</div>
-					
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+						<div id="datosprendas" class='col-md-12'></div><!-- Carga los datos -->
 						
 					</div>
+					
+				
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+					<br></br>
+				
+					
 				</div>
 			</div>
 		</div>
 
-		<script>
+	<script>
 		$(document).ready(function(){
-				load(1);
-			});
+			load2(1);
+		});
 
-		function load(page){
-
-			var parametros={"action":"ajax","page":page};
-			$("#loader").fadeIn('slow');
+		function load2(page){
+			var q= $("#q").val();
+			var parametros1={"action":"ajax","page":page,"q":q};
+			$("#loader1").fadeIn('slow');
 			$.ajax({
-				url:'./ajax/productos_pendientes.php',
-				data: parametros,
+				url:'./ajax/cargar_pendientes.php',
+				data: parametros1,
 				 beforeSend: function(objeto){
-				 $('#loader').html('<img src="./img/ajax-loader.gif"> Cargando...');
+				 $('#loader1').html('Cargando...');
 			  },
 				success:function(data){
-					$(".outer_div").html(data).fadeIn('slow');
-					$('#loader').html('');
+					$(".outer_div2").html(data).fadeIn('slow');
+					$('#loader1').html('');
 					
 				}
 			})
 		}
-		</script>		
+	</script>	
+	<script >
+
+
+		function mostrarproductos(id){	
+		var parametros2={"id":id,"action":"ajax"}
+		$.ajax({
+			type: "POST",
+			url: "./ajax/productos_pendientes.php",
+			data:parametros2,
+			beforeSend: function(objeto){
+				$("#datosprendas").html();
+			},
+			success:function(datos){
+				$("#datosprendas").html(datos);
+			}
+		});
+		}
+	</script>	
 	</body>
 </html>	
