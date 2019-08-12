@@ -1,7 +1,5 @@
 <?php
 	require 'conexion.php';
-?>
-<?php
 	require 'barra_tareas.php';
 
 	

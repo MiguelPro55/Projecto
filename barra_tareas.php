@@ -19,13 +19,13 @@
 <body>
     <header class="header">
         <div class="container logo-nav-container">
-            <a href="index.php" class="logo">Usuario:<?php print $_SESSION["usuario"] ?></a>
+            <a href="index.php" class="logo"><?php print $_SESSION["usuario"] ?></a>
             <nav class="navigation">
                 <ul>
                     <?php if($row['NuevoPedido']==1){ ?>
                     <li><a href="nuevo_pedido.php">Nuevo pedido</a></li><?php } ?>
                     <?php if($row['PedidosPendientes']==1){ ?>
-                    <li><a href="#">Pedidos pendientes</a></li><?php } ?>
+                    <li><a href="pedidos_pendientes.php">Pedidos pendientes</a></li><?php } ?>
                     <?php if($row['PedidosEntregados']==1){ ?>
                     <li><a href="#">Pedidos entregados</a></li><?php } ?>
                     <?php if($row['Productos']==1){ ?>

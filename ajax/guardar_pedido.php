@@ -34,7 +34,11 @@
 		$resultado2= $mysqli->query($sql3);		
 	}
 
+	$_SESSION['subtotal'];
 
+
+	$sqlborrar = "DELETE FROM tmp";
+	$resultadoborrar = $mysqli->query($sqlborrar);
 	header('Location: ../index.php');
 
 
