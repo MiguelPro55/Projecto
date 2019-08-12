@@ -10,6 +10,7 @@
 	$subtotal=$_SESSION['Total'];
 	$total=$_SESSION['totalpedido'];
 	$id_pedido=$_SESSION['id_pedido'];
+	$_SESSION['cliente']=$nombre;
 
 	echo $subtotal;
 	echo $total;
@@ -39,7 +40,7 @@
 
 	$sqlborrar = "DELETE FROM tmp";
 	$resultadoborrar = $mysqli->query($sqlborrar);
-	header('Location: ../index.php');
+	header('Location: ../pedidos_pendientes.php');
 
 
 
