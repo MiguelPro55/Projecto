@@ -26,7 +26,7 @@
 				<br><br>
 			</div>
 			
-			<form class="form-horizontal" method="POST" action="ajax/guardar_pedido.php" autocomplete="off">
+			<form class="form-horizontal" method="POST"   target="_blank" action="ajax/guardar_pedido.php" autocomplete="off">
 				<div class="form-group">
 					<label for="cliente" class="col-sm-2 control-label">Cliente</label>
 					<div class="col-sm-5">
@@ -75,7 +75,7 @@
 					<div class="col-sm-offset-2 col-sm-10">
 						<div class="pull-right">
 						<a href="index.php" class="btn btn-default">Regresar</a>
-						<button id="guarda" type="submit" class="btn btn-primary">Guardar</button>
+						<button id="guarda" type="submit" class="btn btn-primary" >Guardar</button>
 						</div>
 					</div>
 				</div>
