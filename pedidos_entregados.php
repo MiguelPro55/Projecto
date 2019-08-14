@@ -25,9 +25,9 @@
 		<br>
 		<div class="form-group">
 			<div class="col-sm-6">
-				<input type="text" class="form-control" id="q" placeholder="Buscar productos" onkeyup="load2(1)">
+				<input style="margin:20px;" type="text" class="form-control" id="q" placeholder="Buscar productos" onkeyup="load2(1)">
 			</div>
-				<button type="button" class="btn btn-default" onclick="load(1)"><span class='glyphicon glyphicon-search'></span> Buscar</button>
+				<button style="margin:20px;" type="button" class="btn btn-default" onclick="load(1)"><span class='glyphicon glyphicon-search'></span> Buscar</button>
 			</div>
 	</form>
 
@@ -52,7 +52,7 @@
 					</div>
 					
 				
-					<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+					<button style="margin:30px;" type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
 					<br></br>
 				
 					

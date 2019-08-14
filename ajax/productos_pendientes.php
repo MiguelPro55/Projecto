@@ -40,7 +40,7 @@
 				<tr  class="warning">
 					<th>Código</th>
 					<th>Prenda</th>
-					<th><span class="pull-right">Cantidad</span></th>
+					<th>Cantidad</th>
 					<th>Planchado</th>
 					<th>Lavado</th>
 				</tr>
@@ -56,9 +56,9 @@
 					<tr>
 						<td><?php echo $id_producto; ?></td>
 						<td><?php echo $nombre_producto; ?></td>
-						<td><?php echo $cantidad; ?></td>
-						<td><?php echo $Planchado; ?></td>
-						<td><?php echo $Lavado; ?></td>
+						<td style="text-align:center;"><?php echo $cantidad; ?></td>
+						<td style="text-align:center;"><?php echo $Planchado; ?></td>
+						<td style="text-align:center;"><?php echo $Lavado; ?></td>
 					</tr>
 					<?php
 				}

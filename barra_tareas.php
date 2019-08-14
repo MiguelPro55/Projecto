@@ -33,7 +33,7 @@
                     <?php if($row['Empleados']==1){ ?>
                     <li><a href="empleados.php">Empleados</a></li><?php } ?>
                     <?php if($row['ReportePedidos']==1){ ?>
-                    <li><a href="#">Reporte de pedidos</a></li><?php } ?>
+                    <li><a href="reporte_pedidos">Reporte de pedidos</a></li><?php } ?>
                     <?php if($row['GanchosVendidos']==1){ ?>
                     <li><a href="ganchos_vendidos.php">Ganchos vendidos</a></li><?php } ?>
                 </ul>
