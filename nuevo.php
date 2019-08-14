@@ -1,5 +1,6 @@
 <?php
     require 'barra_tareas.php';
+
 ?>
 <html lang="es">
 	<head>

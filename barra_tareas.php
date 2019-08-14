@@ -35,7 +35,7 @@
                     <?php if($row['ReportePedidos']==1){ ?>
                     <li><a href="#">Reporte de pedidos</a></li><?php } ?>
                     <?php if($row['GanchosVendidos']==1){ ?>
-                    <li><a href="#">Ganchos vendidos</a></li><?php } ?>
+                    <li><a href="ganchos_vendidos.php">Ganchos vendidos</a></li><?php } ?>
                 </ul>
             </nav>
             <a href="cierre_login" class="logo">Cerrar sesion</a>

@@ -12,13 +12,14 @@
 	$total=$_SESSION['totalpedido'];
 	$id_pedido=$_SESSION['id_pedido'];
 	$_SESSION['cliente']=$nombre;
-
+	$CELDA=50;
 	if($CantidadGanchosVenta>0){
 		$consulta = $mysqli->query("SELECT PrecioG from precioganchos");
 		$fila = $consulta->fetch_array(MYSQLI_ASSOC);
 		$preciog = $fila['PrecioG'];		
-		$sql4="INSERT INTO ganchosvendidos(Cantidad,PrecioVenta) VALUES ('$CantidadGanchosVenta',$preciog)";
+		$sql4="INSERT INTO ganchosvendidos(Cantidad,PrecioVenta,empleado) VALUES ('$CantidadGanchosVenta',$preciog,'$usuario')";
 		$insertar=$mysqli->query($sql4);
+		$CELDA+=3;
 	}
 	$sql = "INSERT INTO pedidos(Cliente,Abono,ganchoscliente,ganchosvendidos,pendientepagar,total,Empleado,Entregado,idproductos) VALUES ('$nombre','$abono','$Ganchos_cliente','$CantidadGanchosVenta','$subtotal','$total','$usuario','0','$id_pedido')";
 	$resultado = $mysqli->query($sql);
@@ -30,8 +31,22 @@
 		$nombre_producto=$row['Prenda'];
 		$express=$row['express'];
 		$almidon=$row['almidon'];
-		$sql3="INSERT INTO productospedidos (idproducto,Prenda,idpedido,cantidad,express,almidon) VALUES ('$codigo_producto','$nombre_producto','$id_pedido','$cantidad','$express','$almidon')";
+		$lavado=$row['preciol'];
+		$planchado=$row['preciop'];
+		if($lavado == null and $planchado > 0){
+		$sql3="INSERT INTO productospedidos (idproducto,Prenda,idpedido,cantidad,express,almidon,Planchado,Lavado) VALUES ('$codigo_producto','$nombre_producto','$id_pedido','$cantidad','$express','$almidon','Si','No')";
+		$resultado2= $mysqli->query($sql3);	
+		}elseif($planchado == null and  $lavado> 0){
+			$sql3="INSERT INTO productospedidos (idproducto,Prenda,idpedido,cantidad,express,almidon,Planchado,Lavado) VALUES ('$codigo_producto','$nombre_producto','$id_pedido','$cantidad','$express','$almidon','No','Si')";
+		$resultado2= $mysqli->query($sql3);
+		}elseif($planchado >0 and  $lavado> 0){
+			$sql3="INSERT INTO productospedidos (idproducto,Prenda,idpedido,cantidad,express,almidon,Planchado,Lavado) VALUES ('$codigo_producto','$nombre_producto','$id_pedido','$cantidad','$express','$almidon','Si','Si')";
 		$resultado2= $mysqli->query($sql3);		
+		}
+		else{
+			$sql3="INSERT INTO productospedidos (idproducto,Prenda,idpedido,cantidad,express,almidon,Planchado,Lavado) VALUES ('$codigo_producto','$nombre_producto','$id_pedido','$cantidad','$express','$almidon','No','No')";
+		$resultado2= $mysqli->query($sql3);	
+		}
 	}
 
 	$_SESSION['subtotal'];
@@ -42,10 +57,10 @@
 
 
 $sql=mysqli_query($mysqli, "select * from productospedidos where idpedido=$id_pedido");
-$CELDA=50;
+
 $Cont=0;
 while ($row=mysqli_fetch_array($sql)){
-	$CELDA+=13;
+	$CELDA+=9;
 	$Cont+=1;
 }
 
@@ -59,6 +74,9 @@ if ($Cont==1){
 
 $pdf->AddPage();
 $pdf->SetFont('Arial','B',10);    //Letra Arial, negrita (Bold), tam. 20
+
+
+
 $textypos = 5;
 $pdf->Image('logo-planchaduria-icon-ticket.jpg',0,0,15);
 $pdf->text(17,$textypos,"Lavanderia Mi Reyna");
@@ -66,6 +84,9 @@ $pdf->SetFont('Arial','',10);    //Letra Arial, negrita (Bold), tam. 20
 $textypos+=12;
 $pdf->text(5,$textypos,'Cliente: ');
 $pdf->text(20,$textypos,$nombre);
+$textypos+=3;
+$pdf->text(5,$textypos,'Atendido por: ');
+$pdf->text(28,$textypos,$usuario);
 $textypos+=2;
 $pdf->text(2,$textypos,'---------------------------------------------------------');
 $textypos+=4;
@@ -109,14 +130,13 @@ $textypos+=5;
 $pdf->text(5,$textypos,"PENDIENTE: " );
 $pdf->text(50,$textypos,"$ ".number_format($subtotal,2,".",","),0,0,"R");
 $textypos+=7;
-$pdf->text(5,$textypos,'GRACIAS POR TU PREFERENCIA ');
+$pdf->text(5,$textypos,'GRACIAS POR SU PREFERENCIA ');
 $textypos+=5;
 $pdf->text(2,$textypos,'---------------------------------------------------------');
 
 $pdf->output();
 
-$sqlborrar = "DELETE FROM tmp";
-$resultadoborrar = $mysqli->query($sqlborrar);
+
 
 
 

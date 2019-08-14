@@ -29,7 +29,7 @@
 		$total_pages = ceil($numrows/$per_page);
 		$reload = './index.php';
 		//main query to fetch the data
-		$sql="SELECT idproducto,Prenda,cantidad FROM  $sTable $sWhere LIMIT $offset,$per_page";
+		$sql="SELECT idproducto,Prenda,cantidad,Planchado,Lavado FROM  $sTable $sWhere LIMIT $offset,$per_page";
 		$query = mysqli_query($mysqli, $sql);
 		//loop through fetched data
 		if ($numrows>0){
@@ -41,19 +41,24 @@
 					<th>Código</th>
 					<th>Prenda</th>
 					<th><span class="pull-right">Cantidad</span></th>
-					<th style="width: 36px;"></th>
+					<th>Planchado</th>
+					<th>Lavado</th>
 				</tr>
 				<?php
 				while ($row=mysqli_fetch_array($query)){
 					$id_producto=$row['idproducto'];
 					$nombre_producto=$row['Prenda'];
 					$cantidad=$row['cantidad'];
+					$Planchado=$row['Planchado'];
+					$Lavado=$row['Lavado']
 					
 					?>
 					<tr>
 						<td><?php echo $id_producto; ?></td>
 						<td><?php echo $nombre_producto; ?></td>
 						<td><?php echo $cantidad; ?></td>
+						<td><?php echo $Planchado; ?></td>
+						<td><?php echo $Lavado; ?></td>
 					</tr>
 					<?php
 				}
