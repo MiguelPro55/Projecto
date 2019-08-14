@@ -39,37 +39,37 @@
 					</div>
 				</div>
                 <div class="form-group">
-                    <label class='col-sm-5 control-label'>Mostrar en el reporte:</label>
+                    <label class='col-sm-5 control-label'>Lo que se mostrara en el reporte:</label>
                 </div>
 				<div class="form-group">
 					<label for="AbonoPedido" class="col-sm-2 control-label">Total de prendas</label>
 					<div class="col-sm-1">
-						<input type="checkbox" class="form-control" id="TotalPrendas" name="TotalPrendas" value="1">
+						<input type="checkbox" class="form-control" id="TotalPrendas" name="TotalPrendas" value="1" checked>
 					</div>
 				</div>
                 <div class="form-group">
 					<label for="AbonoPedido" class="col-sm-2 control-label">Dinero generado</label>
 					<div class="col-sm-1">
-						<input type="checkbox" class="form-control" id="dinero" name="dinero" value="1">
+						<input type="checkbox" class="form-control" id="dinero" name="dinero" value="1" checked>
 					</div>
 				</div>
                 <div class="form-group">
 					<label for="AbonoPedido" class="col-sm-2 control-label">Pedidos pendientes de entregar generados en el plazo de tiempo</label>
 					<div class="col-sm-1">
-						<input type="checkbox" class="form-control" id="PedidosP" name="PedidosP" value="1">
+						<input type="checkbox" class="form-control" id="PedidosP" name="PedidosP" value="1" checked>
 					</div>
 				</div>
                 <div class="form-group">
 					<label for="AbonoPedido" class="col-sm-2 control-label">Total de abonos</label>
 					<div class="col-sm-1">
-						<input type="checkbox" class="form-control" id="abonos" name="abonos" value="1">
+						<input type="checkbox" class="form-control" id="abonos" name="abonos" value="1" checked>
 					</div>
                     <label for="AbonoPedido" class="col-sm-5 control-label">El dinero que entra como abono, no es contabilizado como dinero generado en el periodo de tiempo dado.</label>
 				</div>
                 <div class="form-group">
 					<label for="AbonoPedido" class="col-sm-2 control-label">Total de ganchos vendidos</label>
 					<div class="col-sm-1">
-						<input type="checkbox" class="form-control" id="ganchosV" name="ganchosV" value="1">
+						<input type="checkbox" class="form-control" id="ganchosV" name="ganchosV" value="1" checked>
 					</div>
 				</div>
                 <div class="form-group">
