@@ -39,7 +39,7 @@
         $fpdf->SetX(20);
         $fpdf->Write(5,'De:'.$fecha1);
         $fpdf->SetX(130);
-        $fpdf->Write(5,'De:'.$fecha2);
+        $fpdf->Write(5,'A:'.$fecha2);
         $fpdf->Ln();
         $fpdf->Ln();
         $fpdf->SetFont('Arial','B',16);
