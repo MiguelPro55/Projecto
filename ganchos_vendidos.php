@@ -85,7 +85,7 @@
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 						<h4 class="modal-title" id="myModalLabel">Vender Ganchos</h4>
 					</div>
-					<form action="guardar_venta_gancho.php" method="POST">
+					<form target="_blank" action="guardar_venta_gancho.php" method="POST">
 					<div class="modal-body">
 						<div class="form-group">
 							<label for="nombre" class="col-sm-2 control-label">Cantidad a vender</label>

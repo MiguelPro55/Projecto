@@ -65,6 +65,8 @@ $delete=mysqli_query($mysqli, "DELETE FROM tmp WHERE id_tmp='".$id."'");
 	$precio_total=($precio_venta_r_planchado+$precio_venta_r_lavado)*$cantidad;
 	$precio_total_f_planchado=number_format($precio_total,2);//Precio total formateado
 	$precio_total_r_planchado=str_replace(",","",$precio_total_f_planchado);//Reemplazo las comas
+	$express_f=str_replace(",","",$express_f);
+	$almidon_f=str_replace(",","",$almidon_f);
 	$sumador_total+=$precio_total_r_planchado+$express_f+$almidon;//Sumador
 	
 		?>

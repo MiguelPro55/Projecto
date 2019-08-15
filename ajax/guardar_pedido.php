@@ -122,13 +122,13 @@ if($CantidadGanchosVenta>0){
 $pdf->text(2,$textypos,'---------------------------------------------------------');
 $textypos+=5;
 $pdf->text(5,$textypos,"TOTAL: " );
-$pdf->text(50,$textypos,"$ ".number_format($total,2,".",","),0,0,"R");
+$pdf->text(50,$textypos,$total,0,0,"R");
 $textypos+=5;
 $pdf->text(5,$textypos,"ABONO: " );
 $pdf->text(50,$textypos,"$ ".number_format($abono,2,".",","),0,0,"R");
 $textypos+=5;
 $pdf->text(5,$textypos,"PENDIENTE: " );
-$pdf->text(50,$textypos,"$ ".number_format($subtotal,2,".",","),0,0,"R");
+$pdf->text(50,$textypos,$subtotal,0,0,"R");
 $textypos+=7;
 $pdf->text(5,$textypos,'GRACIAS POR SU PREFERENCIA ');
 $textypos+=5;
